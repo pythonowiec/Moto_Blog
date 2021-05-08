@@ -9,7 +9,7 @@
 <section class="py-5"><div class="container">
     <div class="row d-flex">
         <div class="col-12">
-            <h3 class="mb-2 text-center h2">Najnowsze posty</h3>
+            <h3 class="mb-2 text-center h2">Najnowsze wpisy</h3>
         </div>
 
         @foreach ($posts as $post)
@@ -17,7 +17,7 @@
                 <article class="card mb-4 border-right-0 border-left-0 border-top-0">
                     <header class="py-md-3 px-md-4">
                         <p class="mb-2">
-                            <span class="text-dark">{{ $post->created_at }}3 years ago  </span> 
+                            <span class="text-dark">{{ $post->created_at }}3 lata temu </span> 
                         </p>
                         <a href="#">
                             <h4 class="card-title text-dark">{{ $post->title }}</h4>
@@ -34,8 +34,6 @@
         @endforeach
 
 
-
-        
     </div>
 </section>
 @endsection
