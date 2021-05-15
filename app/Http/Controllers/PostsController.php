@@ -38,7 +38,7 @@ class PostsController extends Controller
      */
     public function store(Request $request)
     {
-        $post = new Posts($request);
+        $post = new Posts($request->all());
         $post->save();
 
         return redirect('/');
