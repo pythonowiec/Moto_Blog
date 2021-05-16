@@ -40,10 +40,10 @@
                             <a class="nav-link text-white" href="{{ route('add') }}">Dodaj wpis</a>
                         </li>
                         <li class="nav-item  mr-5">
-                            <a class="nav-link text-white" href="#">O autorze</a>
+                            <a class="nav-link text-white" href="{{ route('author') }}">O autorze</a>
                         </li>
                         <li class="nav-item  mr-5">
-                            <a class="nav-link text-white" href="#">Kilka słów o blogu</a>
+                            <a class="nav-link text-white" href="{{ route('info') }}">Kilka słów o blogu</a>
                         </li>
                     </ul>
 

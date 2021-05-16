@@ -18,7 +18,14 @@ use App\Http\Controllers\HomeController;
 Route::get('/', [PostsController::class, 'index'])->name('home');
 
 Auth::routes();
-Route::get('/dodaj_post', [PostsController::class, 'create'])->name('add');
+Route::get('/dodaj_post', [PostsController::class, 'create'])->name('add')->middleware('auth');
 Route::post('/add', [PostsController::class, 'store']);
 
-Route::get('/home', [HomeController::class, 'index'])->name('home');
+Route::get('/autor', function () {
+    return view('author');
+})->name('author');
+
+Route::get('/o_blogu', function () {
+    return view('info');
+})->name('info');
+Route::get('/home', [HomeController::class, 'index']);
