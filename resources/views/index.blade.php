@@ -9,11 +9,11 @@
 <section class="py-5"><div class="container">
     <div class="row d-flex">
         <div class="col-12">
-            <h3 class="mb-2 text-white text-center h2">Najnowsze wpisy</h3>
+            <h3 class="mb-2 text-dark text-center h2">Najnowsze wpisy</h3>
         </div>
 
         @foreach ($posts as $post)
-            <div class="col-sm-6 col-md-4 mt-5  d-flex ">
+            <div class="col-sm-6 col-md-4 mt-3  d-flex ">
                 <article class="card mb-4 border-right-0 border-left-0 border-top-0 bg-dark text-white">
                     <header class="py-md-3 px-md-4">
                         <p class="mb-2">
@@ -33,8 +33,10 @@
             </div>
         @endforeach
 
-        
-
     </div>
+    <div class="pagination pagination-lg d-flex justify-content-center">
+        {{ $posts->links() }}
+    </div>
+    
 </section>
 @endsection
