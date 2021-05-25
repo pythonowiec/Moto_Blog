@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PostsController;
 use App\Http\Controllers\HomeController;
+use Illuminate\Http\RedirectResponse;
 
 /*
 |--------------------------------------------------------------------------
@@ -29,3 +30,4 @@ Route::get('/o_blogu', function () {
     return view('info');
 })->name('info');
 Route::get('/home', [HomeController::class, 'index']);
+Route::post('/search', [PostsController::class, 'search']);

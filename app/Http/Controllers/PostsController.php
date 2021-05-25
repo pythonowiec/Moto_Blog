@@ -14,10 +14,20 @@ class PostsController extends Controller
      */
     public function index()
     {
-        $posts = Posts::select('*')->orderBy('created_at', 'desc')->paginate(3);
+        $posts = Posts::select('*')->orderBy('created_at', 'desc')->paginate(6);
         return view('index', [
             'posts' => $posts
         ]);
+    }
+    public function search(Request $request){
+        if($request->search){
+            $posts = Posts::where('title', 'like', $request->search. '%')->get();
+            return response()->json([
+                "status" => $posts
+            ]);
+        }
+        
+
     }
 
     /**
@@ -41,7 +51,7 @@ class PostsController extends Controller
         $post = new Posts($request->all());
         $post->save();
 
-        return redirect('/');
+        return redirect('/')->with('status', 'create');
     }
 
     /**
