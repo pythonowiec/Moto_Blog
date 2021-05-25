@@ -21,16 +21,16 @@
 </head>
 <body>
     <div id="app">
-        <nav class="navbar navbar-expand-md  bg-secondary  shadow-sm">
+        <nav class="navbar navbar-expand-lg navbar-dark  bg-secondary  shadow-sm">
             <div class="container ">
                 <a class="navbar-brand text-white" href="{{ url('/') }}">
                     {{ config('app.name', 'Laravel') }}
                 </a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
-                </button>
+                  </button>
 
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav ml-5">
                         <li class="nav-item  mr-5" >

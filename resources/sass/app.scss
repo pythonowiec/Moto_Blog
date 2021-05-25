@@ -6,21 +6,20 @@
 
 *{
     font-family: 'Roboto Mono', monospace;
-    overflow: hidden;
 
 }
 
 body{
     background: url("/img/image.jpg");
-    height: 100%;
-    width: 100vw;
+    background-size: cover;
+    background-repeat: no-repeat;
     
 
 }
 
 .footer{
     width: 100%;
-    position: absolute;
+    position: fixed;
     bottom: 0;
     padding-top: 10px;
     padding-bottom: 10px;
@@ -28,4 +27,10 @@ body{
 
 .nav-item:hover{
     background-color: lightgray !important;
+}
+
+.pag{
+    display: flex; 
+    justify-content: center; 
+    align-items: center;
 }
