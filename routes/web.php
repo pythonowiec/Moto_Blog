@@ -29,5 +29,10 @@ Route::get('/autor', function () {
 Route::get('/o_blogu', function () {
     return view('info');
 })->name('info');
+
 Route::get('/home', [HomeController::class, 'index']);
 Route::post('/search', [PostsController::class, 'search']);
+
+Route::get('/test', function () {
+    Storage::disk('google')->put('test.txt', 'Hello World');
+});

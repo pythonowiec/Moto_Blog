@@ -9,10 +9,10 @@
 <section class="py-5"><div class="container">
     <div class="row d-flex">
         <div class="col-12">
-            <h3 class="mb-2 text-dark text-center h2">Najnowsze wpisy</h3>
+            <h1 class="display-5 bg-secondary text-white text-center ">Najnowsze wpisy</h1>
         </div>
         
-        <input id="search" class="form-control mr-sm-2" type="search" placeholder="Szukaj" aria-label="Search">
+        <input id="search" class="form-control mr-sm-2" type="search" placeholder="Szukaj (po tytule)" aria-label="Search">
         <p id="posts" >
             @foreach ($posts as $post)
                 <div class="col-sm-6 col-md-4 mt-3  d-flex posts">
@@ -26,7 +26,7 @@
                             </a>
                         </header>
                         <a href="#">
-                            <img class="card-img" src="https://images.unsplash.com/photo-1502726488490-f99c74217a37?ixlib=rb-0.3.5&amp;q=80&amp;fm=jpg&amp;crop=entropy&amp;cs=tinysrgb&amp;w=1080&amp;fit=max&amp;ixid=eyJhcHBfaWQiOjMyMDc0fQ&amp;s=d156ca94ceff848e0bd0c15894bebb5e" alt="">
+                            <img class="card-img" src="{{ Storage::disk('google')->url($post->path_img) }}"  alt="{{ $post->title }}">
                         </a>
                         <div class="card-body  ">
                             <p class="card-text">{{ $post->content }}</p>

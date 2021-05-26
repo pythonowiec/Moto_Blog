@@ -4,6 +4,10 @@ namespace App\Http\Controllers;
 
 use App\Models\Posts;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Schema;
+use Illuminate\Support\Facades\Storage;
+use Intervention\Image\ImageManagerStatic as Image;
+use Auth;
 
 class PostsController extends Controller
 {
@@ -49,6 +53,9 @@ class PostsController extends Controller
     public function store(Request $request)
     {
         $post = new Posts($request->all());
+        $image = $request->file('image')->store('', 'google');
+        $post->path_img = Storage::disk('google')->getMetadata($image)['path'];
+        $post->user = Auth::user()->name;
         $post->save();
 
         return redirect('/')->with('status', 'create');
