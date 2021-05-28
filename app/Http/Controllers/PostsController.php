@@ -25,12 +25,13 @@ class PostsController extends Controller
     }
     public function search(Request $request){
         if($request->search){
-            $posts = Posts::where('title', 'like', $request->search. '%')->get();
+            $posts = Posts::where('title', 'like','%'. $request->search. '%')->get();
+            // Storage::disk('google')->url(${element['path_img']}
             return response()->json([
                 "status" => $posts
             ]);
         }
-        
+
 
     }
 

@@ -1,3 +1,4 @@
+var posts = $("#posts").html();
 const search = document.getElementById('search');
         search.addEventListener('input', ()=>{
             if(search.value != ''){
@@ -12,34 +13,33 @@ const search = document.getElementById('search');
                     data: { search: search.value }
                 })
                 .done(function(response) {
-                    $(".posts").remove();
+                    $("#posts").empty();
                     // console.log(response);
                     response['status'].forEach(element => {
-                        $('#posts').append(`
-                        <div class="col-sm-6 col-md-4 mt-3 d-inline-flex posts">
-                            <article class="card mb-4 border-right-0 border-left-0 border-top-0 bg-dark text-white">
-                                <header class="py-md-3 px-md-4">
-                                    <p class="mb-2">
-                                        <span class=""> ${element['created_at']}</span>
-                                    </p>
-                                    <a href="#">
-                                        <h4 class="card-title text-white "> ${element['title']}</h4>
-                                    </a>
-                                </header>
-                                <a href="#">
-                                    <img class="card-img" src="https://images.unsplash.com/photo-1502726488490-f99c74217a37?ixlib=rb-0.3.5&amp;q=80&amp;fm=jpg&amp;crop=entropy&amp;cs=tinysrgb&amp;w=1080&amp;fit=max&amp;ixid=eyJhcHBfaWQiOjMyMDc0fQ&amp;s=d156ca94ceff848e0bd0c15894bebb5e" alt="">
-                                </a>
-                                <div class="card-body  ">
-                                    <p class="card-text"> ${element['content']}</p>
+                        // console.log(element['title'])
+                        $("#posts").append(`
+                        <div class="col mt-5">
+                            <div class="card h-100 bg-secondary text-white ">
+                                <img src="https://drive.google.com/uc?id=${element['path_img']}&export=media  " class="card-img-top" alt="${element['path_img']} ">
+                                <div class="card-body">
+                                    <h5 class="card-title">${element['title']}</h5>
+                                    <p class="card-text">${element['content']}</p> 
                                 </div>
-                            </article>
-                    </div>`);
+                                <div class="card-footer">
+                                    <small class="text-white">${element['created_at']}</small>
+                                </div>
+                            </div>
+                        </div>
+                        `);
+                        // let posts = $('#posts').innerHTML;
+                        // console.log(posts);
                     });
                 })
                 .fail(function (response) {
                     alert("ERROR");
                 });
             }else{
-                window.location.reload();
+                $("#posts").html(posts);
+                console.log(posts)
             }
         });

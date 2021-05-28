@@ -13,28 +13,23 @@
         </div>
         
         <input id="search" class="form-control mr-sm-2" type="search" placeholder="Szukaj (po tytule)" aria-label="Search">
-        <p id="posts" >
+        <div class="row row-cols-1 row-cols-md-3 g-4" id="posts">
             @foreach ($posts as $post)
-                <div class="col-sm-6 col-md-4 mt-3  d-flex posts">
-                    <article class="card mb-4 border-right-0 border-left-0 border-top-0 bg-dark text-white">
-                        <header class="py-md-3 px-md-4">
-                            <p class="mb-2">
-                                <span class="">{{ $post->created_at }}</span>
-                            </p>
-                            <a href="#">
-                                <h4 class="card-title text-white ">{{ $post->title }}</h4>
-                            </a>
-                        </header>
-                        <a href="#">
-                            <img class="card-img" src="{{ Storage::disk('google')->url($post->path_img) }}"  alt="{{ $post->title }}">
-                        </a>
-                        <div class="card-body  ">
+                <div class="col mt-5">
+                    <div class="card h-100 bg-secondary text-white ">
+                        <img src="{{ Storage::disk('google')->url($post->path_img) }}" class="card-img-top" alt="{{ $post->title }}">
+                        <div class="card-body">
+                            <h5 class="card-title">{{ $post->title }}</h5>
                             <p class="card-text">{{ $post->content }}</p>
                         </div>
-                    </article>
+                        <div class="card-footer">
+                            <small class="text-white">{{ $post->created_at }}</small>
+                        </div>
+                    </div>
                 </div>
             @endforeach
-        </p>
+        </div>
+
 
     </div>
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
