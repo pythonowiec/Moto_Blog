@@ -8,8 +8,11 @@
 
 <section class="py-5"><div class="container">
     <div class="row d-flex">
-        <div class="col-12">
-            <h1 class="display-5 bg-secondary text-white text-center ">Najnowsze wpisy</h1>
+        <div class="jumbotron jumbotron-fluid bg-image  w-100 img-fluid"
+        style="
+          background-image: url({{asset('img/syrena.jpg')}});
+          height: 65vh;">
+        <h1 class="display-4 bg-dark text-white text-center" style="opacity: 0.50">Witaj, oto wszystkie wpisy</h1>
         </div>
         
         <input id="search" class="form-control mr-sm-2" type="search" placeholder="Szukaj (po tytule)" aria-label="Search">

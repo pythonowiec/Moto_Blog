@@ -4,14 +4,17 @@
 @endsection
 
 @section('content')
+<section class="py-5"><div class="container">
     <form method="POST" action="{{ url('/add') }}" enctype="multipart/form-data">
         @csrf
+
         <div class="row">
-            <div class="col-4"></div>
-            <div class="col-4">
-                <h1 class="display-5 bg-secondary text-white text-center mt-3">Dodaj wpis na blogu</h1>
+            <div class="jumbotron jumbotron-fluid bg-image  w-100 img-fluid"
+                style="
+                    background-image: url({{asset('img/syrena.jpg')}});
+                    height: 65vh;">
+                <h1 class="display-4 bg-dark text-white text-center" style="opacity: 0.50">Dodaj nowy wpis</h1>
             </div>
-            <div class="col-4"></div>
         </div>
         <div class="row">
             <div class="col-2"></div>
@@ -38,4 +41,6 @@
             <div class="col-2"></div>
         </div>
     </form>
+</div>
+</section>
 @endsection
