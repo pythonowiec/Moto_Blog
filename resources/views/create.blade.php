@@ -31,7 +31,7 @@
                         </div>
                         <div class="form-group">
                             <label>Zdjęcie</label>
-                            <input type="file" name="image">
+                            <input type="file" name="image" required>
                         </div>
                         <button type="submit" class="btn btn-primary">Zapisz</button>
                     </div>
@@ -41,6 +41,15 @@
             <div class="col-2"></div>
         </div>
     </form>
+    @if ($errors->any())
+        <div class="alert alert-danger mt-4">
+            <ul>
+                @foreach ($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                @endforeach
+            </ul>
+        </div>
+    @endif
 </div>
 </section>
 @endsection

@@ -30,6 +30,9 @@ Route::get('/o_blogu', function () {
     return view('info');
 })->name('info');
 
+Route::get('/{id}', [PostsController::class, 'show']);
+Route::post('/add_c', [PostsController::class, 'add'])->name('add_comment')->middleware('auth');
+
 Route::get('/home', [HomeController::class, 'index']);
 Route::post('/search', [PostsController::class, 'search']);
 

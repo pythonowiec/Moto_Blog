@@ -22,7 +22,7 @@
                     <div class="card h-100 bg-secondary text-white ">
                         <img src="{{ Storage::disk('google')->url($post->path_img) }}" class="card-img-top" alt="{{ $post->title }}">
                         <div class="card-body">
-                            <h5 class="card-title">{{ $post->title }}</h5>
+                            <a class="text-white" href="{{ url('/', ['id' => $post->id]) }}"><h5 class="card-title">{{ $post->title }}</h5></a>
                             <p class="card-text">{{ $post->content }}</p>
                         </div>
                         <div class="card-footer">

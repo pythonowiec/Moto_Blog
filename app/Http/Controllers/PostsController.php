@@ -3,11 +3,13 @@
 namespace App\Http\Controllers;
 
 use App\Models\Posts;
+use App\Models\Comment;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Support\Facades\Storage;
 use Intervention\Image\ImageManagerStatic as Image;
 use Auth;
+
 
 class PostsController extends Controller
 {
@@ -53,6 +55,12 @@ class PostsController extends Controller
      */
     public function store(Request $request)
     {
+        $validated = $request->validate([
+            'title' => 'required|unique:Posts,title|max:255',
+            'content' => 'required|max:255',
+            'image' => 'required|mimes:jpg,bmp,png,jpeg'
+        ]);
+
         $post = new Posts($request->all());
         $image = $request->file('image')->store('', 'google');
         $post->path_img = Storage::disk('google')->getMetadata($image)['path'];
@@ -62,15 +70,34 @@ class PostsController extends Controller
         return redirect('/')->with('status', 'create');
     }
 
+    public function add(Request $request){
+        $validated = $request->validate([
+            'content' => 'required|max:255',
+        ]);
+        $comment = new Comment();
+        $comment->user = Auth::user()->name;
+        $comment->post_id = $request->id;
+        $comment->content = $request->content;
+        $comment->save();
+
+        return redirect()->back()->with('status', 'create');
+    }
+
     /**
      * Display the specified resource.
      *
      * @param  \App\Models\Posts  $posts
      * @return \Illuminate\Http\Response
      */
-    public function show(Posts $posts)
+    public function show($id)
     {
-        //
+        $post = Posts::find($id);
+        $comments = Comment::select('*')->where('post_id', $id)->get();
+        return view('post', [
+            'post' => $post,
+            'comments' => $comments
+
+        ]);
     }
 
     /**
