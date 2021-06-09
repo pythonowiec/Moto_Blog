@@ -31,7 +31,7 @@
                         </div>
                         <div class="form-group">
                             <label>Zdjęcie</label>
-                            <input type="file" name="image" required>
+                            <input type="file" name="image" >
                         </div>
                         <button type="submit" class="btn btn-primary">Zapisz</button>
                     </div>

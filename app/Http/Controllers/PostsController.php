@@ -58,7 +58,7 @@ class PostsController extends Controller
         $validated = $request->validate([
             'title' => 'required|unique:posts,title|max:255',
             'content' => 'required|max:255',
-            'image' => 'required|mimes:jpg,bmp,png,jpeg'
+            'image' => 'mimes:jpg,bmp,png,jpeg'
         ]);
 
         $post = new Posts($request->all());
