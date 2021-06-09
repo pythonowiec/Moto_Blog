@@ -56,7 +56,7 @@ class PostsController extends Controller
     public function store(Request $request)
     {
         $validated = $request->validate([
-            'title' => 'required|unique:osts,title|max:255',
+            'title' => 'required|unique:posts,title|max:255',
             'content' => 'required|max:255',
             'image' => 'required|mimes:jpg,bmp,png,jpeg'
         ]);
