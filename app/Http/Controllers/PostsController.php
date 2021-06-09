@@ -56,15 +56,14 @@ class PostsController extends Controller
     public function store(Request $request)
     {
         $validated = $request->validate([
-            'title' => 'required|unique:posts,title|max:255',
+            'title' => 'required|unique:osts,title|max:255',
             'content' => 'required|max:255',
-            'image' => 'mimes:jpg,bmp,png,jpeg'
+            'image' => 'required|mimes:jpg,bmp,png,jpeg'
         ]);
 
         $post = new Posts($request->all());
-        // $image = $request->file('image')->store('', 'google');
-        // $post->path_img = Storage::disk('google')->getMetadata($image)['path'];
-        $post->path_img = ".";
+        $image = $request->file('image')->store('', 'google');
+        $post->path_img = Storage::disk('google')->getMetadata($image)['path'];
         $post->user = Auth::user()->name;
         $post->save();
 
