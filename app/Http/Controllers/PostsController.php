@@ -64,7 +64,7 @@ class PostsController extends Controller
         $post = new Posts($request->all());
         // $image = $request->file('image')->store('', 'google');
         // $post->path_img = Storage::disk('google')->getMetadata($image)['path'];
-        $image = ".";
+        $post->path_img = ".";
         $post->user = Auth::user()->name;
         $post->save();
 
