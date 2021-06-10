@@ -62,7 +62,7 @@ class PostsController extends Controller
         ]);
 
         $post = new Posts($request->all());
-        $post->path_img = "."
+        $post->path_img = ".";
         $post->user = Auth::user()->name;
         $post->save();
 
