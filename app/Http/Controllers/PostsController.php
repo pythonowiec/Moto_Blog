@@ -58,12 +58,11 @@ class PostsController extends Controller
         $validated = $request->validate([
             'title' => 'required|unique:posts,title|max:255',
             'content' => 'required|max:255',
-            'image' => 'required|mimes:jpg,bmp,png,jpeg'
+            'image' => 'mimes:jpg,bmp,png,jpeg'
         ]);
 
         $post = new Posts($request->all());
-        $image = $request->file('image')->store('', 'google');
-        $post->path_img = Storage::disk('google')->getMetadata($image)['path'];
+        $post->path_img = "."
         $post->user = Auth::user()->name;
         $post->save();
 
