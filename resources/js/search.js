@@ -20,7 +20,7 @@ const search = document.getElementById('search');
                         $("#posts").append(`
                         <div class="col mt-5">
                             <div class="card h-100 bg-secondary text-white ">
-                                <img src="https://drive.google.com/uc?id=${element['path_img']}&export=media  " class="card-img-top" alt="${element['path_img']} ">
+                            <img src="img/syrena.jpg" class="card-img-top" alt="">
                                 <div class="card-body">
                                     <h5 class="card-title">${element['title']}</h5>
                                     <p class="card-text">${element['content']}</p> 
