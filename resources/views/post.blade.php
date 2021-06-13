@@ -22,7 +22,7 @@
             <h1 class="display-5 text-white">Komentarze</h1>
             @foreach ($comments as $comment)
                     <div class="col-2"></div>
-                    <div class="col-8">
+                    <div class="col-8 pt-5">
                         <div class="card bg-secondary text-white">
                             <div class="card-header">
                                 {{ $comment->user }}
@@ -74,7 +74,7 @@
             Swal.fire({
             position: 'top-end',
             icon: 'success',
-            title: 'Twój comentarz został dodany',
+            title: 'Twój komentarz został dodany',
             showConfirmButton: false,
             timer: 2000
             })
