@@ -29,10 +29,6 @@
                             <label>Treść wpisu</label>
                             <textarea type="text" name="content" class="form-control" placeholder="Treść" required></textarea>
                         </div>
-                        <div class="form-group">
-                            <label>Zdjęcie</label>
-                            <input type="file" name="image" >
-                        </div>
                         <button type="submit" class="btn btn-primary">Zapisz</button>
                     </div>
                 </div>
@@ -42,7 +38,7 @@
         </div>
     </form>
     @if ($errors->any())
-        <div class="alert alert-danger mt-4">
+        <div class="text-white bg-danger mt-4">
             <ul>
                 @foreach ($errors->all() as $error)
                     <li>{{ $error }}</li>
