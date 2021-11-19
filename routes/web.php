@@ -22,7 +22,9 @@ Auth::routes();
 Route::get('/dodaj_post', [PostsController::class, 'create'])->name('add')->middleware('auth');
 Route::post('/add', [PostsController::class, 'store']);
 
-
+Route::get('/autor', function () {
+    return view('author');
+})->name('author');
 
 Route::get('/o_blogu', function () {
     return view('info');
